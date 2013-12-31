@@ -21,7 +21,7 @@
             "src/migrations"
         ],
         "psr-0": {
-            "Ipunkt\\Dox\\": "src/"
+            "Rokde\\Dox\\": "src/"
         }
     },
     "minimum-stability": "dev"
