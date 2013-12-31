@@ -1,6 +1,5 @@
 {
-    "version": "1",
-    "name": "ipunkt/dox",
+    "name": "rokde/dox",
     "description": "Documentation package for Laravel 4.1",
     "authors": [
 		{
