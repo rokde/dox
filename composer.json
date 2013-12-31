@@ -1,0 +1,28 @@
+{
+    "name": "ipunkt/dox",
+    "description": "Documentation package for Laravel 4.1",
+    "authors": [
+		{
+			"name": "ipunkt Business Solutions",
+			"email": "info@ipunkt.biz"
+		},
+		{
+			"name": "Robert Kummer",
+			"email": "rok@ipunkt.biz"
+		}
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*",
+        "dflydev/markdown": "v1.0.3"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Ipunkt\\Dox\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
