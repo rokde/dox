@@ -1,5 +1,6 @@
 <?php namespace Rokde\Dox;
 
+use Config;
 use Illuminate\Support\ServiceProvider;
 
 class DoxServiceProvider extends ServiceProvider {
