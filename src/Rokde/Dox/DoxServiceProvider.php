@@ -30,7 +30,7 @@ class DoxServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->package('ipunkt/dox');
+		$this->package('rokde/dox');
 		$this->registerRoute();
 	}
 
