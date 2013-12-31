@@ -20,7 +20,7 @@ class DoxServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-
+		$this->package('rokde/dox');
 	}
 
 	/**
@@ -30,7 +30,6 @@ class DoxServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->package('rokde/dox');
 		$this->registerRoute();
 	}
 
