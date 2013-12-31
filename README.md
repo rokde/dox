@@ -4,15 +4,21 @@
 
 Add to your composer.json following lines
 
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/rokde/dox"
+		}
+	],
 	"require": {
-		"ipunkt/dox": "dev-master"
+		"rok/dox": "dev-master"
 	}
 
-Run `php artisan config:publish ipunkt/dox`
+Run `php artisan config:publish rokde/dox`
 
-Then edit `config.php` in `app/config/packages/ipunkt/dox` to your needs.
+Then edit `config.php` in `app/config/packages/rokde/dox` to your needs.
 
-Add `'Ipunkt\Dox\DoxServiceProvider',` to `providers` in `app/config/app.php`.
+Add `'Rokde\Dox\DoxServiceProvider',` to `providers` in `app/config/app.php`.
 
 
 ## Configuration
