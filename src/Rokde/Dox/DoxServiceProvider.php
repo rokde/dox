@@ -1,4 +1,4 @@
-<?php namespace Ipunkt\Dox;
+<?php namespace Rokde\Dox;
 
 use Illuminate\Support\ServiceProvider;
 

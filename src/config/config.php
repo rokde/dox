@@ -1,6 +1,6 @@
 <?php
 /**
- * ipunkt/dox configuration file
+ * rok/dox configuration file
  *
  * @author rok <rok@ipunkt.biz>
  * @since 31.12.13
