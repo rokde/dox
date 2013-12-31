@@ -6,6 +6,9 @@
  * @since 31.12.13
  */
 
+use Config;
+use File;
+use View;
 use \dflydev\markdown\MarkdownParser as Markdown;
 use \dflydev\markdown\MarkdownExtraParser as ExtraParser;
 
