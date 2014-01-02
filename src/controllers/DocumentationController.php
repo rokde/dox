@@ -52,7 +52,7 @@ class DocumentationController extends Controller {
 			App::abort(404);
 		}
 
-		$navigation = $this->getNavigationLinks($index, $document);
+		$navigation = $this->getNavigationLinks($index, $file);
 
 		return View::make(Config::get('dox::view', 'dox::document'), compact('content', 'index', 'navigation'));
 	}
@@ -114,6 +114,12 @@ class DocumentationController extends Controller {
 	 */
 	protected function getNavigationLinks($html, $currentDocument)
 	{
+		if ($currentDocument === null)
+		{
+			$currentDocument = '';
+		}
+		$currentDocument = Config::get('dox::uri', '/docs/') . $currentDocument;
+
 		$dom = new DOMDocument();
 		$dom->loadHTML($html);
 
@@ -123,8 +129,6 @@ class DocumentationController extends Controller {
 			'next' => false,
 			'title' => '',
 		);
-
-		$basePath = rtrim(base_path() . '/' . Config::get('dox::path'), '/') . '/';
 
 		$domLinks = $dom->getElementsByTagName('a');
 		foreach ($domLinks as $domLink)
@@ -138,18 +142,21 @@ class DocumentationController extends Controller {
 				break;
 			}
 
-			$foundCurrentDocument = ($basePath . ltrim($link['uri'], '/') === $currentDocument);
+			$foundCurrentDocument = ($link['uri'] === $currentDocument);
 			if (!$foundCurrentDocument) // on this loop
 			{
 				$navigation['prev'] = $link;
+				continue;
 			}
-			else
-			{
-				//	current documents title
-				$navigation['title'] = $link['title'];
-			}
+
+			//	current documents title
+			$navigation['title'] = $link['title'];
 		}
 
+		if (empty($navigation['title']))
+		{
+			$navigation['title'] = Config::get('dox::title', 'Documentation');
+		}
 		return $navigation;
 	}
 }
