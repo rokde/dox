@@ -42,7 +42,7 @@ class DoxServiceProvider extends ServiceProvider {
 	{
 		$uri = rtrim(Config::get('dox::uri'), '/') . '/';
 		Route::get($uri . '{file?}', 'Rokde\Dox\DocumentationController@getDocument')
-			->where('file', '[a-z0-9\-\_\.]+');
+			->where('file', '[a-z0-9\-\_\.\/]+');
 	}
 
 	/**
