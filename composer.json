@@ -3,10 +3,6 @@
     "description": "Documentation package for Laravel 4.1",
     "authors": [
 		{
-			"name": "ipunkt Business Solutions",
-			"email": "info@ipunkt.biz"
-		},
-		{
 			"name": "Robert Kummer",
 			"email": "rok@ipunkt.biz"
 		}
@@ -18,10 +14,10 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/controllers"
         ],
         "psr-0": {
-            "Rokde\\Dox\\": "src/"
+            "Rokde\\Dox": "src/"
         }
     },
     "minimum-stability": "dev"
