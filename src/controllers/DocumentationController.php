@@ -8,11 +8,11 @@
 
 use App;
 use Config;
+use Controller;
 use File;
 use Exception;
 use View;
 use DOMDocument;
-use Illuminate\Routing\Controllers\Controller;
 use \dflydev\markdown\MarkdownParser as Markdown;
 use \dflydev\markdown\MarkdownExtraParser as ExtraParser;
 
