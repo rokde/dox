@@ -13,6 +13,11 @@
 	<style type="text/css">
 		body { padding-top: 20px; padding-bottom: 20px; }
 		.navbar { margin-bottom: 20px; }
+
+		nav ul { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+		nav ul li { padding: 5px 0;}
+		nav ul li ul { margin-bottom: 25px; margin-left: 20px; }
+		nav ul li ul li { padding: 0; }
 	</style>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,16 +40,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">{{{ Config::get('dox::title', 'Documentation') }}}</a>
+			<a class="navbar-brand" href="{{{ Config::get('dox::uri', '/docs/') }}}">{{{ Config::get('dox::title', 'Documentation') }}}</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="./">Documentation</a></li>
-			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="./">Default</a></li>
-				<li><a href="../navbar-static-top/">Static top</a></li>
-				<li><a href="../navbar-fixed-top/">Fixed top</a></li>
+				<li class="active"><a href="{{{ URL::current() }}}">{{{ $navigation['title'] }}}</a></li>
+				@if ($navigation['prev'])
+				<li><a href="{{{ $navigation['prev']['uri'] }}}">&larr; {{{ $navigation['prev']['title'] }}}</a></li>
+				@endif
+				@if ($navigation['next'])
+				<li><a href="{{{ $navigation['next']['uri'] }}}">{{{ $navigation['next']['title'] }}} &rarr;</a></li>
+				@endif
 			</ul>
 		</div>
 		<!--/.nav-collapse -->
@@ -53,20 +59,28 @@
 	<!-- Main component for a primary marketing message or call to action -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-9">
 				{{ $content }}
 
 				<nav>
+					<ul class="pager">
 					@if ($navigation['prev'])
-					<a href="{{{ $navigation['prev']['uri'] }}}">{{{ $navigation['prev']['title'] }}}</a>
+						<li class="previous"><a href="{{{ $navigation['prev']['uri'] }}}">&larr; {{{ $navigation['prev']['title'] }}}</a>
+					@else
+						<li class="previous disabled"><a href="#">&larr;</a></li>
 					@endif
 					@if ($navigation['next'])
-					<a href="{{{ $navigation['next']['uri'] }}}">{{{ $navigation['next']['title'] }}}</a>
+						<li class="next"><a href="{{{ $navigation['next']['uri'] }}}">{{{ $navigation['next']['title'] }}} &rarr;</a>
+					@else
+						<li class="next disabled"><a href="#">&rarr;</a></li>
 					@endif
+					</ul>
 				</nav>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
+				<nav>
 				{{ $index }}
+				</nav>
 			</div>
 		</div>
 	</div>
