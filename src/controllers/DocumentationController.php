@@ -1,4 +1,4 @@
-<?php
+<?php namespace Rokde\Dox;
 /**
  * mitarbeiterbereich2
  *
@@ -6,9 +6,13 @@
  * @since 31.12.13
  */
 
+use App;
 use Config;
 use File;
+use Exception;
 use View;
+use DOMDocument;
+use Illuminate\Routing\Controllers\Controller;
 use \dflydev\markdown\MarkdownParser as Markdown;
 use \dflydev\markdown\MarkdownExtraParser as ExtraParser;
 
