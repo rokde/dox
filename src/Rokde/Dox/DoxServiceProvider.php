@@ -21,6 +21,7 @@ class DoxServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('rokde/dox');
+		$this->registerRoute();
 	}
 
 	/**
@@ -30,7 +31,8 @@ class DoxServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->registerRoute();
+		//	does nothing right now, because registering routes
+		//	faulted in Class translation not found
 	}
 
 	/**
@@ -39,7 +41,7 @@ class DoxServiceProvider extends ServiceProvider {
 	public function registerRoute()
 	{
 		$uri = rtrim(Config::get('dox::uri'), '/') . '/';
-		Route::get($uri . '{file}', 'DocumentationController@getDocument')
+		Route::get($uri . '{file?}', 'DocumentationController@getDocument')
 			->where('file', '[a-z0-9\-\_\.]+');
 	}
 
@@ -52,5 +54,4 @@ class DoxServiceProvider extends ServiceProvider {
 	{
 		return array();
 	}
-
 }
