@@ -11,7 +11,7 @@ Add to your composer.json following lines
 		}
 	],
 	"require": {
-		"rok/dox": "dev-master"
+		"rokde/dox": "dev-master"
 	}
 
 Run `php artisan config:publish rokde/dox`
