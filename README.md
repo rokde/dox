@@ -1,4 +1,4 @@
-# Documentation package for Laravel 4.1
+# Documentation package for Laravel >=4.1
 
 ## Installation
 
