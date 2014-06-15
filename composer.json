@@ -1,6 +1,6 @@
 {
     "name": "rokde/dox",
-    "description": "Documentation package for Laravel 4.1",
+    "description": "Documentation package for Laravel >4.1",
     "authors": [
 		{
 			"name": "Robert Kummer",
@@ -9,7 +9,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "4.*",
+        "illuminate/support": ">=4.1.0",
         "dflydev/markdown": "v1.0.3"
     },
     "autoload": {
