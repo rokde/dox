@@ -118,7 +118,7 @@ class DocumentationController extends Controller {
 		{
 			$currentDocument = '';
 		}
-		$currentDocument = Config::get('dox::uri', '/docs/') . $currentDocument;
+		$currentDocument = rtrim(Config::get('dox::uri', '/docs/'), '/') . '/' . $currentDocument;
 
 		$dom = new DOMDocument();
 		$dom->loadHTML($html);
